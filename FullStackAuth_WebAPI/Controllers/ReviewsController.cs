@@ -2,6 +2,7 @@
 using FullStackAuth_WebAPI.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace booknook_WebAPI.Controllers
 {
@@ -16,6 +17,29 @@ namespace booknook_WebAPI.Controllers
             _context = context;
         }
         [HttpPost, Authorize]
-        public IActionResult Post([FromBody] Review data)...
+        public IActionResult Post([FromBody] Review data) 
+        {   
+            try
+            {
+                string userId = User.FindFirstValue("id");
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized();
+                }
+                data.OwnerId = userId;
+                _context.Reviews.Add(data);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                _context.SaveChanges();
+                return StatusCode(201, data);
+            }
+            catch (Exception ex)
+                {
+                    return StatusCode(500, ex.Message);
+                }
+           
+        }
     }
 }
