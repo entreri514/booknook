@@ -21,7 +21,7 @@ namespace booknook_WebAPI.Controllers
             try
             {
                 string userId = User.FindFirstValue("id");
-                var  favorites= _context.Favorites.Where(c => c.OwnerId.Equals(userId));
+                var  favorites= _context.Favorites.Where(c => c.UserId.Equals(userId));
                 return StatusCode(200, favorites);
             }
             catch (Exception ex)

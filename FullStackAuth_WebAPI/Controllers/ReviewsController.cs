@@ -26,7 +26,7 @@ namespace booknook_WebAPI.Controllers
                 {
                     return Unauthorized();
                 }
-                data.OwnerId = userId;
+                data.UserId = userId;
                 _context.Reviews.Add(data);
                 if (!ModelState.IsValid)
                 {
