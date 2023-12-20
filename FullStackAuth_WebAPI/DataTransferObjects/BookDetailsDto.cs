@@ -1,6 +1,6 @@
 ﻿namespace booknook_WebAPI.DataTransferObjects
 {
-    public class BookDetailDto
+    public class BookDetailsDto
     {
     }
 }
