@@ -12,6 +12,11 @@ namespace booknook_WebAPI.Controllers
     public class BookDetailsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+
+        public BookDetailsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         
 
         [HttpGet("{bookId}")]
@@ -22,9 +27,14 @@ namespace booknook_WebAPI.Controllers
             {
                 var BookDetailsObj = new BookDetailsDto
                 {
-                    ratingAverage = 0,
-                    Favorited = false,
-                    Reviews = _context.Reviews.Where(b => b.bookId),
+                    
+                    
+                    Reviews = _context.Reviews.Select(r => new ReviewWithUserDto
+                    {
+                        BookId = r.BookId,
+                        Text = r.Text,
+                        Rating = r.Rating,
+                    }).ToList()
                 };
                 var book = BookDetailsObj;
                 if (book == null)
