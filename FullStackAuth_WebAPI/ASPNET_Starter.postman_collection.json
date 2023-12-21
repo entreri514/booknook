@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "57533192-c092-440e-be98-03438f66a486",
+		"name": "ASPNET_Starter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31184745"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Bob\",\r\n    \"lastname\": \"Bobson\",\r\n    \"username\": \"bob\",\r\n    \"password\": \"Qw12345^\",\r\n    \"email\": \"bob@bob.bob\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:5001/api/authentication"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://localhost:5001/api/authentication"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "Get My Favorites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://localhost:5001/api/favorites"
+					},
+					"response": []
+				},
+				{
+					"name": "Post New Favorite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://localhost:5001/api/favorites"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "PostNewReview",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InJvYiIsImVtYWlsIjoicm9iQHJvYi5yb2IiLCJpZCI6ImU0ZjIxOWMyLWU4ZmYtNGU1My04YzA2LTE0NmI1ZjJkMzM0MCIsImV4cCI6MTcwMzE4MzUwOCwiaXNzIjoiRnVsbFN0YWNrQXV0aF9XZWJBUEkiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.IvmD9TQ4znEcA7CYe-9O8Som75-i3bt-qFSbTO-j9OA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"BookId\": \"1\",\r\n    \"Text\": \"Excellent book!\",\r\n    \"Rating\": \"4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:5001/api/reviews"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BookDetails",
+			"item": [
+				{
+					"name": "Get Book Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://localhost:5001/api/bookdetails/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
