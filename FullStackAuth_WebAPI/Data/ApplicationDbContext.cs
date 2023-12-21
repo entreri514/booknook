@@ -1,4 +1,5 @@
-﻿using booknook_WebAPI.Models;
+﻿using booknook_WebAPI.DataTransferObjects;
+using booknook_WebAPI.Models;
 using FullStackAuth_WebAPI.Configuration;
 using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
