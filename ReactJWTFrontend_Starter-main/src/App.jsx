@@ -28,6 +28,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

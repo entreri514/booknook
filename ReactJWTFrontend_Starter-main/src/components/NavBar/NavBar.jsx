@@ -16,11 +16,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="search">
-          <Link
-            to="/.SearchPage"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            <b>Search</b>
+          <Link style={{ textDecoration: "none", color: "white" }}>
+            <b onClick={() => navigate("/search")}>Search</b>
           </Link>
         </li>
 
