@@ -20,6 +20,14 @@ const Navbar = () => {
             <b>Search</b>
           </Link>
         </li>
+        <li className="favorites">
+          <Link
+            to="/favorites"
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <b>Favorites</b>
+          </Link>
+        </li>
 
         <li>
           {user ? (

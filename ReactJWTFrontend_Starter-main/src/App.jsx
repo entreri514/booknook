@@ -7,6 +7,8 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import BookDetailPage from "./pages/BookDetailPage/BookDetailPage";
+import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -31,6 +33,7 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/detail/:bookId/" element={<BookDetailPage />} />
       </Routes>
       <Footer />
     </div>
