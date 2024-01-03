@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const BookDetailPage = ({ title, author, description, thumbnail }) => {
+const BookDetailPage = () => {
   const { bookId } = useParams();
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState("");
@@ -20,15 +20,25 @@ const BookDetailPage = ({ title, author, description, thumbnail }) => {
       );
       console.log("responser", response);
       if (response.status === 200) {
-        let book = response.data.volumeInfo;
-        console.log("book", book);
+        setBooks(response.data.volumeInfo);
       }
     } catch (error) {
       console.warn("Error submitting form", error);
     }
   };
-
-  return <h1>{book.title}</h1>;
+  console.log("books", books);
+  let thumb = books.ImageLinks.thumbnail;
+  return (
+    <div>
+      <img thumb alt="image" width="200" height="200" />
+      <button className="btn btn-primary" type="button">
+        Favorite
+      </button>
+      <h4>{books.title}</h4>
+      <h2>{books.authors[0]}</h2>
+      <p>{books.description}</p>
+    </div>
+  );
 };
 
 export default BookDetailPage;
