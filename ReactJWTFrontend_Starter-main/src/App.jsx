@@ -34,6 +34,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/detail/:bookId/" element={<BookDetailPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
       <Footer />
     </div>

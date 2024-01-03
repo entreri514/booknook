@@ -4,10 +4,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import FavoritesPage from "../FavoritesPage/FavoritesPage";
 
 const BookDetailPage = () => {
   const { bookId } = useParams();
-  const [books, setBooks] = useState([]);
+  const [book, setBook] = useState([]);
   const [search, setSearch] = useState("");
   console.log(bookId);
   useEffect(() => {
@@ -20,23 +21,26 @@ const BookDetailPage = () => {
       );
       console.log("responser", response);
       if (response.status === 200) {
-        setBooks(response.data.volumeInfo);
+        setBook(response.data.volumeInfo);
       }
     } catch (error) {
       console.warn("Error submitting form", error);
     }
   };
-  console.log("books", books);
-  let thumb = books.ImageLinks.thumbnail;
+  console.log("book", book);
+  let test = book.title;
+  if (test != undefined) {
+    let thumb = book.imageLinks.thumbnail;
+  }
   return (
     <div>
-      <img thumb alt="image" width="200" height="200" />
+      <img src="{thumb}" alt="image" width="200" height="200" />
       <button className="btn btn-primary" type="button">
         Favorite
       </button>
-      <h4>{books.title}</h4>
-      <h2>{books.authors[0]}</h2>
-      <p>{books.description}</p>
+      <h4>{book.title}</h4>
+      <h2>{book.authors}</h2>
+      <p>{book.description}</p>
     </div>
   );
 };
