@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const BookDetailPage = ({}) => {
+const BookDetailPage = ({ title, author, description, thumbnail }) => {
   const { bookId } = useParams();
-  const [book, setBook] = useState([]);
+  const [books, setBooks] = useState([]);
   const [search, setSearch] = useState("");
   console.log(bookId);
   useEffect(() => {
@@ -18,16 +18,17 @@ const BookDetailPage = ({}) => {
       const response = await axios.get(
         "https://www.googleapis.com/books/v1/volumes/" + bookId
       );
-      console.log(response);
+      console.log("responser", response);
       if (response.status === 200) {
-        setSearch(response.data.items);
+        let book = response.data.volumeInfo;
+        console.log("book", book);
       }
     } catch (error) {
       console.warn("Error submitting form", error);
     }
   };
 
-  return <div></div>;
+  return <h1>{book.title}</h1>;
 };
 
 export default BookDetailPage;
