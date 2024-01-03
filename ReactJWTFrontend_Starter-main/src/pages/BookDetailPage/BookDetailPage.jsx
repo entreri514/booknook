@@ -6,18 +6,17 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const BookDetailPage = ({}) => {
-  const id = useParams();
+  const { bookId } = useParams();
+  const [book, setBook] = useState([]);
   const [search, setSearch] = useState("");
-  console.log(id);
+  console.log(bookId);
   useEffect(() => {
     fetchBook();
   }, []);
   const fetchBook = async (e) => {
-    e.preventDefault();
-    debugger;
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes/q=${id}`
+        "https://www.googleapis.com/books/v1/volumes/" + bookId
       );
       console.log(response);
       if (response.status === 200) {
