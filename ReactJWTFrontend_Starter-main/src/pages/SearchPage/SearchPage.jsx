@@ -3,7 +3,6 @@ import axios from "axios";
 import SearchField from "../../components/SearchField/SearchField";
 import { Link } from "react-router-dom";
 import App from "../../App";
-import BookList from "../../components/BookList/BookList";
 import BookDetailPage from "../BookDetailPage/BookDetailPage";
 
 const SearchPage = ({ onNewSearch }) => {
@@ -18,7 +17,7 @@ const SearchPage = ({ onNewSearch }) => {
       const response = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${search}`
       );
-      console.log(response);
+      // console.log(response);
       if (response.status === 200) {
         //save response.data.items[]
         setBooks(response.data.items);
@@ -30,11 +29,11 @@ const SearchPage = ({ onNewSearch }) => {
 
   const searchResults = books.map((book, index) => {
     {
-      console.log("book in map", book);
+      //console.log("book in map", book);
     }
     return <Link to={`/detail/${book.id}`}>{book.volumeInfo.title}</Link>;
   });
-  console.log(searchResults);
+  //console.log(searchResults);
 
   return (
     <form onSubmit={handleSubmit}>
