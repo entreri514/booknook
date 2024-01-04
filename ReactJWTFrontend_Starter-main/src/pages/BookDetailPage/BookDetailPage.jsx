@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import FavoritesPage from "../FavoritesPage/FavoritesPage";
-
+import AddReview from "../../components/AddReview/AddReview";
 const BookDetailPage = () => {
   const { bookId } = useParams();
   const [book, setBook] = useState([]);
@@ -28,6 +28,7 @@ const BookDetailPage = () => {
     }
   };
   console.log("book", book);
+  let averageRating = 0;
   let test = book.title;
   if (test != undefined) {
     let thumb = book.imageLinks.thumbnail;
@@ -41,6 +42,17 @@ const BookDetailPage = () => {
       <h4>{book.title}</h4>
       <h2>{book.authors}</h2>
       <p>{book.description}</p>
+
+      <h4>Average User Rating:</h4>
+      <h4>User Reviews:</h4>
+      <p>Leave A Review</p>
+      <p>Rating (1-5)</p>
+      <AddReview label="" value={search} onChange={setSearch} />
+      <div className="d-flex justify-content-end">
+        <button className="btn btn-primary" type="submit">
+          Review
+        </button>
+      </div>
     </div>
   );
 };

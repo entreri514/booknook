@@ -4,7 +4,7 @@ import SearchField from "../../components/SearchField/SearchField";
 import { Link } from "react-router-dom";
 import App from "../../App";
 import BookDetailPage from "../BookDetailPage/BookDetailPage";
-
+import "./SearchPage.css";
 const SearchPage = ({ onNewSearch }) => {
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState("");
